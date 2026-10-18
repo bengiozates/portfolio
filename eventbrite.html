@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Eventbrite lead plan | Bengi Özateş</title>
 <meta name="description" content="A first-pass B2B lead plan for Eventbrite in Italy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -217,7 +218,7 @@ function render(){
   let h='<table><thead><tr><th>#</th><th>Organization</th><th>Segment</th><th>Format</th><th>Scale</th><th>Tickets</th><th>Platform seen</th><th>Score</th></tr></thead><tbody>';
   rows.forEach((r,k)=>{const l=r.l;
     h+='<tr class="row" data-i="'+r.i+'"><td class="rank">'+String(k+1).padStart(2,'0')+'</td><td class="name"><b>'+l.name+'</b><small>'+l.city+' · '+l.type+(l.public?' · public body':'')+(l.verified?' · <span class="ver">✓ checked</span>':'')+'</small></td><td><span class="pill '+l.segment+'">'+l.segment+'</span></td><td>'+sel(r.i,'format')+'</td><td>'+sel(r.i,'scale')+'</td><td>'+sel(r.i,'paid')+'</td><td>'+sel(r.i,'ticketing')+'</td><td><div class="score"><div class="bar"><i style="width:'+r.s+'%"></i></div><b>'+r.s+'</b></div></td></tr>';
-    if(open===r.i) h+='<tr class="detail"><td></td><td colspan="7"><div class="detail-grid"><div><h5>Opening angle</h5><p>'+angle(l)+'</p></div><div><h5>Objection to prepare for</h5><p>'+objection(l)+'</p></div></div><div class="detail-src">Public source <a href="'+l.url+'" target="_blank" rel="noopener">'+l.url.replace(/^https?:\/\//,'').split('/')[0]+'</a></div></td></tr>';
+    if(open===r.i) h+='<tr class="detail"><td></td><td colspan="7"><div class="detail-grid"><div><h5>Opening angle</h5><p>'+angle(l)+'</p></div><div><h5>Objection to prepare for</h5><p>'+objection(l)+'</p></div></div><div class="detail-src">Public source <a href="'+l.url+'" target="_blank" rel="noopener noreferrer">'+l.url.replace(/^https?:\/\//,'').split('/')[0]+'</a></div></td></tr>';
   });
   document.getElementById('tbl').innerHTML=h+'</tbody></table>';
 }
